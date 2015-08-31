@@ -1,0 +1,336 @@
+body {
+  background: $white;
+  color: $black;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.wrapper{
+  &.is-hidden{
+    overflow: hidden;
+    height: 100vh;
+  }
+  &.is-visible{
+    overflow: visible;
+  }
+}
+
+h1 {
+  background: url("../public/images/HUGE-white.png") no-repeat;
+  background-size: 100%;
+  width: 60px;
+  height: 24px;
+  text-indent: -9999%;
+  display: block;
+  float: left;
+  margin: 24px;
+  margin-right: 48px;
+}
+
+p{
+  font: 24px $galaxie;
+  line-height: 36px;
+  text-align: justify;
+}
+
+.bigTitle{
+  font: 120px $avantGarde;
+  line-height: 132px;
+  color: $white;
+  position: absolute;
+  margin: 0;
+  top: calc(50% - 147px);
+  left: calc(50% - 396px);
+  width: 792px;
+}
+
+header{
+  background: $pink;
+  height: 72px;
+  .menu--close{
+    display: none;
+  }
+  nav{
+    display: block;
+    float: left;
+    height: 24px;
+    ul{
+      margin: 0;
+      padding: 0;
+      height: 24px;
+      li{
+        float: left;
+        list-style: none;
+        ul{
+          display: none;
+          position: absolute;
+          z-index: 20;
+          li{
+            float: none;
+            a{
+              color: $black;
+              background: $white;
+              font: 16px $galaxie;
+              height: 48px;
+              line-height: 48px;
+              padding: 0 24px;
+              &:hover{
+                background: #EEE;
+              }
+            }
+            &:first-child{
+              padding-top: 12px;
+              background: $white;
+            }
+            &:last-child{
+              padding-bottom: 12px;
+              background: $white;
+            }
+          }
+        }
+        a{
+          text-decoration: none;
+          font: 21px $avantGarde;
+          display: block;
+          height: 44px;
+          line-height: 48px;
+          padding: 14px 24px;
+          color: $white;
+          &:hover{
+            color: $pink;
+            background: $white;
+          }
+        }
+        &.is-visible{
+          ul{
+            display: block;
+          }
+          > a{
+            color: $pink;
+            background: $white;
+          }
+        }
+        &.is-hidden{
+          ul{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+main{
+  .main--wrap{
+    position: relative;
+    img{
+      width: 100%;
+    }
+  }
+  p{
+    max-width: 968px;
+    margin: 47px auto;
+  }
+}
+
+.transparence{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  transition:all ease 0.5s;
+  &.is-hidden{
+    background: rgba(0, 0, 0, 0);
+  }
+  &.is-visible{
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+footer{
+  display: none;
+}
+
+@media (max-width: 962px) {
+  header nav ul li a{
+    padding: 14px 10px;
+  }
+  .bigTitle{
+    font-size: 100px;
+    left: calc(50% - 329px);
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    background-size: 100%;
+    width: 50px;
+    height: 20px;
+    display: block;
+    float: left;
+    margin: 20px 24px;
+    position: relative;
+    left: -100%;
+    transition:all ease 0.5s;
+    &.is-visible{
+      left: 0;
+    }
+  }
+
+  p{
+    font: 14px $galaxie;
+    line-height: 24px;
+    padding: 0 24px;
+  }
+
+  .bigTitle{
+    font: 44px $avantGarde;
+    line-height: 48px;
+    color: $black;
+    position: static;
+    margin: 0;
+    margin-top: 50px;
+    margin-left: 24px;
+  }
+
+  header {
+    height: 60px;
+    .menu--close{
+      display: block;
+      position: relative;
+      cursor: pointer;
+      transition:all ease 0.5s;
+      &.is-visible{
+        background: url("../public/images/toggle-close.svg") no-repeat;
+        background-position: -2px;
+        left: calc(100% - 95px);
+        width: 60px;
+        height: 60px;
+        margin: 0px 24px;
+      }
+      &.is-hidden{
+        background: url("../public/images/toggle-open.svg") no-repeat;
+        background-size: 100%;
+        width: 60px;
+        height: 60px;
+        display: block;
+        float: left;
+        margin: 0px 4px;
+        left: -100px;
+      }
+    }
+    nav{
+      clear: both;
+      position: absolute;
+      z-index: 20;
+      height: 910px;
+      width: calc(100% - 72px);
+      background: $white;
+      top: 60px;
+      transition:all ease 0.5s;
+      &.is-hidden{
+        left: -100%;
+      }
+      &.is-visible{
+        left: 0;
+      }
+      ul{
+        li{
+          clear: both;
+          width: 100%;
+          display: inline-block;
+          &:first-child{
+            margin-top: 12px;
+          }
+          &.is-visible{
+            ul{
+              display: inline-block;
+            }
+            .menu--arrow{
+              background-position: 22px;
+            }
+          }
+          &.is-hidden{
+            ul{
+              display: none;
+            }
+            .menu--arrow{
+              background-position: 0px;
+            }
+          }
+          a{
+            color: $black;
+            float: left;
+            width: calc(100% - 48px);
+            height: 48px;
+            line-height: 48px;
+            padding: 0 24px;
+            &:hover{
+              background: #EEE;
+            }
+          }
+          ul{
+            position: static;
+            display: none;
+            clear: both;
+            width: calc(100% - 48px);
+            li{
+              width: 100%;
+              &:first-child{
+                padding-top: 0;
+              }
+              &:last-child{
+                padding-bottom: 0;
+              }
+              a{
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .main{
+    transition:all ease 0.5s;
+    .is-visible{
+      position: relative;
+      left: calc(100% - 72px);
+    }
+    .is-hidden{
+      left: 0;
+    }
+  }
+
+  .menu--arrow{
+    background: url("../public/images/arrows.png");
+    width: 22px;
+    height: 13px;
+    position: absolute;
+    right: 0;
+    margin-right: 14px;
+    margin-top: 19px;
+  }
+
+  footer{
+    display: block;
+    font: 12px $helvetica;
+    line-height: 48px;
+    height: 48px;
+    width: calc(100% - 96px);
+    position: absolute;
+    padding-left: 24px;
+    z-index: 30;
+    top:930px;
+    background: $white;
+    transition:all ease 0.5s;
+    &.is-hidden{
+      left: -100%;
+    }
+    &.is-visible{
+      left: 0;
+    }
+  }
+
+}
